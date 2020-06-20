@@ -1,3 +1,5 @@
+import com.ibm.cuda.CudaKernel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,6 +8,9 @@ public class ParkingLotSystem {
     private int actualcapacity;
     private List vehicles;
     private ParkingLotOwner owner;
+    private List <ParkingLotObserver> observers;
+
+
 
     public ParkingLotSystem(int capacity) {
         this.vehicles = new ArrayList();
@@ -55,5 +60,9 @@ public class ParkingLotSystem {
             }
             return false;
         }
+
+    public void registerParkingLotObservers(ParkingLotObserver observer) {
+        this.observers.add(observer);
     }
+}
 
